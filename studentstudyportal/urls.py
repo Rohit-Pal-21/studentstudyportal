@@ -19,12 +19,12 @@ from django.urls import include
 from dashboard import views as dash_views
 from django.contrib.auth import views as auth_views
 urlpatterns = [
-    path('https://studentstudyportal.azurewebsites.net/admin/', admin.site.urls),
-    path('https://studentstudyportal.azurewebsites.net',include('dashboard.urls')),
-    path('/https://studentstudyportal.azurewebsites.netregister/',dash_views.register,name='register'),
-    path('https://studentstudyportal.azurewebsites.net/login/',auth_views.LoginView.as_view(template_name="dashboard/login.html"),name='login'),
-    path('https://studentstudyportal.azurewebsites.net/profile/',dash_views.profile,name='profile'),
-    path('https://studentstudyportal.azurewebsites.net/logout/',auth_views.LogoutView.as_view(template_name="dashboard/logout.html"),name='logout'),
+    path('admin/', admin.site.urls),
+    path('',include('dashboard.urls')),
+    path('register/',dash_views.register,name='register'),
+    path('login/',auth_views.LoginView.as_view(template_name="dashboard/login.html"),name='login'),
+    path('profile/',dash_views.profile,name='profile'),
+    path('logout/',auth_views.LogoutView.as_view(template_name="dashboard/logout.html"),name='logout'),
 
 
 
